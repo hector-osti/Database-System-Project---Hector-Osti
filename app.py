@@ -11,6 +11,7 @@ def get_db():
         user="",
         password="",
         database="game_platform"
+        autocommit=True
     )
 
 # Users
