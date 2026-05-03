@@ -10,7 +10,7 @@ def get_db():
         host="127.0.0.1",
         user="",
         password="",
-        database="game_platform"
+        database="game_platform",
         autocommit=True
     )
 
