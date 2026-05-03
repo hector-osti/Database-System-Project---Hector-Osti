@@ -236,7 +236,7 @@ def add_purchase():
         return redirect('/purchases')
     cursor.execute("select user_id, username from Users order by username")
     users = cursor.fetchall()
-    cursor.execute("select game_id, title, price from Games orber by title")
+    cursor.execute("select game_id, title, price from Games order by title")
     games = cursor.fetchall(); db.close()
     return render_template('add_purchase.html', users=users, games=games)
 
