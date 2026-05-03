@@ -8,7 +8,7 @@ app = Flask(__name__, template_folder='templates')
 def get_db():
     return mysql.connector.connect(
         host="127.0.0.1",
-        user="root",
+        user="",
         password="",
         database="game_platform"
     )
