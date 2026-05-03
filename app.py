@@ -188,7 +188,7 @@ def add_achievement():
             """insert into Achievements (game_id, name, description, points, score_required)
             values (%s, %s, %s, %s, %s)""",
             (request.form['game_id'], request.form['name'],
-             request.form['description'], request.form['points'] or None,
+             request.form['description'], request.form['points'],
              request.form['score_required'])
         )
         db.commit(); db.close()
