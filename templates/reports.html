@@ -80,13 +80,11 @@
             {% if top_users %}
                 {% for u in top_users %}
                 <tr>
-                    <td>
-                        {% if loop.index == 1 %} {% elif loop.index == 2 %} {% elif loop.index == 3 %} {% else %}{{ loop.index }}{% endif %}
-                    </td>
+                    <td>{{ loop.index }}</td>
                     <td>{{ u[0] }}</td>
                     <td>{{ u[1] }}</td>
-                    <td><span class="badge bg-warning text-dark">${{ u[2] }} pts</span></td>
-                    <td>${{ u[3] }} hrs</td>
+                    <td><span class="badge bg-warning text-dark">{{ u[2] }} pts</span></td>
+                    <td>{{ u[3] }} hrs</td>
                 </tr>
                 {% endfor %}
             {% else %}
