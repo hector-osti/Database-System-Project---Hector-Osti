@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Achievement</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/">Gaming Platform</a>
+        <div class="navbar-nav flex-row gap-3">
+            <a class="nav-link" href="/">Users</a>
+            <a class="nav-link" href="/games">Games</a>
+            <a class="nav-link" href="/sessions">Sessions</a>
+            <a class="nav-link active" href="/achievements">Achievements</a>
+            <a class="nav-link" href="/purchases">Purchases</a>
+            <a class="nav-link" href="/friends">Friends</a>
+            <a class="nav-link text-warning" href="/reports">Reports</a>
+        </div>
+    </div>
+</nav>
+        
+<div class="container" style="max-width:500px">
+        <h2 class="mb-3">Add Achievement</h2>
+        <form method="POST" class="card p-4 shadow-sm">
+            <div class="mb-3">
+                <label class="form-label">Game</label>
+                <select name="game_id" class="form-select" required>
+                    <option value="">-- Select game --</option>
+                    {% for g in games %}
+                    <option value="{{ g[0] }}">{{ g[1] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Achievement Name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" name="description" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Points</label>
+                <input type="number" name="points" min="1" value="10" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Score Required (for auto-award trigger)</label>
+                <input type="number" name="score_required" min="0" value="0" class="form-control" required>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-success">Add Achievement</button>
+                <a href="/achievements" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+    </body>
+</html>

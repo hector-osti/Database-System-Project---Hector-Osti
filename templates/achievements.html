@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Achievements</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/">Gaming Platform</a>
+        <div class="navbar-nav flex-row gap-3">
+            <a class="nav-link" href="/">Users</a>
+            <a class="nav-link" href="/games">Games</a>
+            <a class="nav-link" href="/sessions">Sessions</a>
+            <a class="nav-link active" href="/achievements">Achievements</a>
+            <a class="nav-link" href="/purchases">Purchases</a>
+            <a class="nav-link" href="/friends">Friends</a>
+            <a class="nav-link text-warning" href="/reports">Reports</a>
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Achievements</h2>
+            <a href="/achievements/add" class="btn btn-primary">+ Add Achievements</a>
+        </div>
+        
+        <table class="table table-striped table-bordered shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Game</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Points</th>
+                    <th>Score Required</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% if achievements %}
+                {% for a in achievements %}
+                <tr>
+                    <td>{{ a[0] }}</td>
+                    <td>{{ a[1] }}</td>
+                    <td><strong>{{ a[2] }}</strong></td>
+                    <td>{{ a[3] }}</td>
+                    <td><span class="badge bg-warning text-dark">{{ a[4] }} pts</span></td>
+                    <td>{{ a[5] }}</td>
+                    <td>
+                        <a href="/achievements/delete/{{ a[0] }}" class="btn btn-sm btn-danger"
+                            onclick="return confirm('Delete this achievements?')">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="7" class="text-center text-muted">No achievements found</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+    </body>
+</html>
