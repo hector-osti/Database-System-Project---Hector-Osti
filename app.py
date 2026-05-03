@@ -9,7 +9,7 @@ def get_db():
     return mysql.connector.connect(
         host="127.0.0.1",
         user="root",
-        password="I$@4isa929314",
+        password="",
         database="game_platform"
     )
 
