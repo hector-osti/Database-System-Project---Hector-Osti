@@ -203,7 +203,7 @@ def delete_achievement(achievement_id):
     db = get_db(); cursor = db.cursor()
     cursor.execute("delete from Achievements where achievement_id=%s", (achievement_id,))
     db.commit(); db.close()
-    return redirect('/achivements')
+    return redirect('/achievements')
 
 
 # Purchases
