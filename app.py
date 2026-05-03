@@ -192,7 +192,7 @@ def add_achievement():
              request.form['score_required'])
         )
         db.commit(); db.close()
-        return redirect('/achievments')
+        return redirect('/achievements')
     cursor.execute("select game_id, title from Games order by title")
     games = cursor.fetchall(); db.close()
     return render_template('add_achievement.html', games=games)
