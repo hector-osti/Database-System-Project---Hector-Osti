@@ -228,8 +228,7 @@ def add_purchase():
     db = get_db(); cursor = db.cursor()
     if request.method == 'POST':
         cursor.execute(
-            """insert into Purchases (user_id, game_id, amount_paid)
-            values (%s, %s, %s)""",
+            "insert into Purchases (user_id, game_id, amount_paid) values (%s, %s, %s)",
             (request.form['user_id'], request.form['game_id'],
              request.form['amount_paid'])
         )
