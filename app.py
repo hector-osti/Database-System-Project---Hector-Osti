@@ -272,7 +272,7 @@ def add_friend():
     db = get_db(); cursor = db.cursor()
     if request.method == 'POST':
         cursor.execute(
-            "call AddFriends(%s, %s)",
+            "call AddFriend(%s, %s)",
             (request.form['user_id'], request.form['friend_id'])
         )
         db.commit(); db.close()
